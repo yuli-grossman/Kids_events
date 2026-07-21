@@ -801,23 +801,89 @@ def scrape_habama_special():
         if ev_date and ev_date < today:
             continue
 
-        # Try to find image near the link
-        img = a.find_parent('td')
-        image = ''
-        if img:
-            img_el = img.find_previous('img') or img.find_next('img')
-            if img_el:
-                src = img_el.get('src', '')
-                if src:
-                    image = src if src.startswith('http') else f'{base}{src}'
-
         ev = make_event(
             'מיוחד', title, ev_date, date_text, url,
             venue, 'הצגת ילדים', '', 5,
-            special=True, image=image
+            special=True, image=''
         )
         if not ev['age_label']:
             ev['age_label'] = 'ילדים'
+        events.append(ev)
+
+    return events
+
+
+def scrape_leaan_special():
+    """leaan.co.il – הצגות ואירועים לילדים ברחבי ישראל (Next.js SSR)"""
+    import json as _json
+    from datetime import datetime
+    url = 'https://www.leaan.co.il/category/%D7%99%D7%9C%D7%93%D7%99%D7%9D'
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=18)
+        resp.encoding = 'utf-8'
+        soup = BeautifulSoup(resp.text, 'lxml')
+        script = soup.find('script', {'id': '__NEXT_DATA__'})
+        if not script:
+            return []
+        data = _json.loads(script.string)
+        raw_events = (data.get('props', {}).get('pageProps', {})
+                      .get('initialState', {}).get('pageData', {})
+                      .get('events', []))
+        sellers = (data.get('props', {}).get('pageProps', {})
+                   .get('initialState', {}).get('pageData', {})
+                   .get('sellers_and_artists', []))
+    except Exception as e:
+        print(f'leaan error: {e}', file=sys.stderr)
+        return []
+
+    today = date.today()
+    seen_sellers = {}  # seller_name → best (earliest) event
+
+    for ev in raw_events:
+        if not ev.get('active'):
+            continue
+        if ev.get('is_soldout'):
+            continue
+        seller_name = ev.get('name', ev.get('event_name', ''))
+        ts = ev.get('event_start', 0)
+        if not ts:
+            continue
+        ev_date = datetime.fromtimestamp(ts).date()
+        if ev_date < today:
+            continue
+        vivenu_sid = ev.get('vivenu_seller_id', '')
+        seller_url = f'https://tickets.leaan.net/seller/{vivenu_sid}' if vivenu_sid else url
+        # Keep only earliest future date per seller (deduplicate across cities)
+        if seller_name not in seen_sellers or ev_date < seen_sellers[seller_name]['date_obj']:
+            seen_sellers[seller_name] = {
+                'name': seller_name,
+                'date_obj': ev_date,
+                'date_text': ev_date.strftime('%d/%m/%Y'),
+                'location': ev.get('location', {}).get('name', ''),
+                'image': ev.get('vivenu_image', ''),
+                'description': ev.get('description', ''),
+                'seller_url': seller_url,
+            }
+
+    events = []
+    for name, info in sorted(seen_sellers.items(), key=lambda x: x[1]['date_obj']):
+
+        # Strip HTML from description
+        raw_desc = info['description']
+        desc = ''
+        if raw_desc:
+            desc_soup = BeautifulSoup(raw_desc, 'lxml')
+            desc = clean_description(desc_soup.get_text(separator=' ', strip=True))[:260]
+
+        ev = make_event(
+            'מיוחד', name, info['date_obj'], info['date_text'],
+            info['seller_url'],
+            desc, 'הצגת ילדים', '', 5,
+            special=True, image=info['image']
+        )
+        if not ev['age_label']:
+            ev['age_label'] = 'ילדים'
+        ev['description'] = ev['description'] or f"{info['location']}" if info['location'] else ''
         events.append(ev)
 
     return events
@@ -1469,6 +1535,7 @@ CITY_SCRAPERS = [
 
 SPECIAL_SCRAPERS = [
     scrape_habama_special,
+    scrape_leaan_special,
 ]
 
 
