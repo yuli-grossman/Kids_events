@@ -106,15 +106,30 @@ INFANT_ONLY_PATTERNS = [
     r'גיל\s+חודשים',
     r'(?:מ\s*)?לידה\s*[-–]\s*(?:שנה|שנתיים|18|24)',
     r'(?:מ\s*)?(?:לידה|0)\s*[-–]\s*(?:שנה|שנתיים)',
-    r'(?:אמא|אבא)\s+ותינוק\b',  # "אמא ותינוק" without broader age
+    r'(?:אמא|אבא|אם|הורה)\s+ו(?:ה)?תינוק',  # "אמא ותינוק", "לאם ולתינוק"
     r'בוקר\s+(?:עם\s+)?(?:אמא|אבא)\s+ותינוק',
     r'תינוקות\s+(?:0|מ)?[-–]?\s*(?:שנה|שנתיים|24|18|12)\s*(?:חודשים?)?$',
+    r'פעוטון\b',
+    r'לפעוטות?\s+(?:עד|מ)?[-–]?\s*(?:גיל\s+)?(?:שנתיים|שנה|3(?:\s|$))',
+    r'(?:גיל|לגיל)\s+(?:0|א)\s*[-–]\s*2',
+    r'\bהנקה\b',                              # breastfeeding events
+    r'שינת\s+תינוקות?',                       # baby sleep lecture
+    r'עיסוי\s+תינוקות?',                      # baby massage
+    r'לגילאי\s+לידה',                         # "לגילאי לידה עד זחילה"
+    r'\bזחילה\b',                             # crawling stage = clearly infant
+    r'לידה\s+עד\s+\d+\s*חודשים?',            # birth to X months
+    r'לגילאי?\s+\d+\s*[-–]\s*\d+\s*חודשים?\b',  # ages expressed only in months
+    r'\d+\s*[-–]\s*\d+\s*חודשים',            # any "X-Y חודשים" = infant
+    r'\bבייבי\b',                             # "בייבי סטפס" etc.
+    r'\bbaby\b',
+    r'חוג\s+(?:לתינוקות?|לפעוטות?)\b',
+    r'רפלקסולוגיה\s+לאם',
 ]
 
 # Presence of any of these indicates the event includes ages 3+ (so don't exclude)
 INCLUDES_OLDER_PATTERN = re.compile(
     r'גיל\s+[3-9]|[3-9]\s*[-–]\s*\d+\s*שנ|לכל המשפח|גיל הגן|גן\s+ילדים|'
-    r'(?:3|4|5|6|7)\s*[-–]\s*(?:5|6|7|8|9|10)|גיל\s+(?:שלוש|ארבע|חמש|שש)'
+    r'(?:3|4|5|6|7)\s*[-–]\s*(?:5|6|7|8|9|10)(?!\s*חודשים)|גיל\s+(?:שלוש|ארבע|חמש|שש)'
 )
 
 # Events exclusively for children with special needs / disabilities — exclude
@@ -132,13 +147,6 @@ SPECIAL_NEEDS_ONLY_PATTERNS = [
     r'ילדים\s+עם\s+(?:מוגבלות|אוטיזם|לקויות)',
     r'(?:^|\s)לבעלי\s+(?:צרכים|מוגבלות)',
     r'בעלי\s+מוגבלויות?',
-]
-
-# Also extend infant patterns — extra edge cases
-INFANT_ONLY_PATTERNS += [
-    r'פעוטון\b',
-    r'לפעוטות?\s+(?:עד|מ)?[-–]?\s*(?:גיל\s+)?(?:שנתיים|שנה|3(?:\s|$))',
-    r'(?:גיל|לגיל)\s+(?:0|א)\s*[-–]\s*2',
 ]
 
 
@@ -285,16 +293,17 @@ def is_children_event(title, description='', category='', audience=''):
             return False, 0
 
     # Exclude infant-only events unless they also include ages 3+
+    # Returns score=-1 so callers can hard-skip regardless of department
     for pattern in INFANT_ONLY_PATTERNS:
         if re.search(pattern, combined):
             if not INCLUDES_OLDER_PATTERN.search(combined):
-                return False, 0
+                return False, -1
 
     # Exclude events exclusively for children with special needs / disabilities
     for pattern in SPECIAL_NEEDS_ONLY_PATTERNS:
         if re.search(pattern, combined):
             if not INCLUDES_OLDER_PATTERN.search(combined):
-                return False, 0
+                return False, -1
 
     score = 0
     for kw in CHILDREN_KEYWORDS:
@@ -715,6 +724,8 @@ def scrape_yehud():
                 description = ''
 
             is_child, score = is_children_event(title, description[:200])
+            if score < 0:  # explicitly excluded (infant / special needs)
+                continue
             in_core_dept = dept == 7
             in_child_dept = dept in CHILDREN_DEPTS
 
@@ -759,58 +770,6 @@ def scrape_petahtikva():
 
 
 # ─── Special events scraper ───────────────────────────────────────────────────
-
-def scrape_habama_special():
-    """מרכז הבמה – הצגות ואירועים לילדים ברחבי המרכז (habama.co.il)"""
-    base = 'https://www.habama.co.il'
-    events = []
-    today = date.today()
-    seen_titles = set()
-
-    # Children's events page (Subj=6 = ילדים, Area=1 = מרכז)
-    soup = fetch(f'{base}/Pages/SubjectCategory.aspx?Subj=6&Area=1', timeout=20)
-    if not soup:
-        return events
-
-    for a in soup.find_all('a', href=re.compile(r'EventID=\d+')):
-        title = a.get_text(strip=True)
-        if not title or len(title) < 3:
-            continue
-        if title in seen_titles:
-            continue
-        seen_titles.add(title)
-
-        href = a.get('href', '')
-        url = href if href.startswith('http') else f'{base}{href}'
-
-        # Navigate up to table row for date/venue
-        row = a.find_parent('tr')
-        date_text = ''
-        venue = ''
-        if row:
-            cells = [td.get_text(strip=True) for td in row.find_all('td')]
-            for cell in cells:
-                if cell == title:
-                    continue
-                if re.search(r'\d{1,2}[./]\d{1,2}', cell) and not date_text:
-                    date_text = cell
-                elif cell and len(cell) > 2 and not venue:
-                    venue = cell
-
-        ev_date = parse_date(date_text)
-        if ev_date and ev_date < today:
-            continue
-
-        ev = make_event(
-            'מיוחד', title, ev_date, date_text, url,
-            venue, 'הצגת ילדים', '', 5,
-            special=True, image=''
-        )
-        if not ev['age_label']:
-            ev['age_label'] = 'ילדים'
-        events.append(ev)
-
-    return events
 
 
 def scrape_leaan_special():
@@ -1534,7 +1493,6 @@ CITY_SCRAPERS = [
 ]
 
 SPECIAL_SCRAPERS = [
-    scrape_habama_special,
     scrape_leaan_special,
 ]
 
