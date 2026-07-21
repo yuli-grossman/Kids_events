@@ -117,6 +117,30 @@ INCLUDES_OLDER_PATTERN = re.compile(
     r'(?:3|4|5|6|7)\s*[-–]\s*(?:5|6|7|8|9|10)|גיל\s+(?:שלוש|ארבע|חמש|שש)'
 )
 
+# Events exclusively for children with special needs / disabilities — exclude
+# (kept if the event ALSO mentions typical ages 3+, i.e. it's inclusive)
+SPECIAL_NEEDS_ONLY_PATTERNS = [
+    r'לילדים?\s+(?:עם|בעלי)\s+(?:צרכים\s*מיוחדים|מוגבלות|מוגבלויות|אוטיזם|לקויות)',
+    r'ילדים?\s+(?:ה?ב|עם\s+ה?)ספקטרום',
+    r'\bחינוך\s+מיוחד\b',
+    r'כיתות?\s+מיוחדות?',
+    r'מסגרות?\s+(?:לחינוך\s+)?מיוחדות?',
+    r'קבוצה\s+טיפולית',
+    r'קייטנה\s+לילדים\s+עם',
+    r'\bלאוטיסטים\b',
+    r'\bצרכים\s+מיוחדים\b',
+    r'ילדים\s+עם\s+(?:מוגבלות|אוטיזם|לקויות)',
+    r'(?:^|\s)לבעלי\s+(?:צרכים|מוגבלות)',
+    r'בעלי\s+מוגבלויות?',
+]
+
+# Also extend infant patterns — extra edge cases
+INFANT_ONLY_PATTERNS += [
+    r'פעוטון\b',
+    r'לפעוטות?\s+(?:עד|מ)?[-–]?\s*(?:גיל\s+)?(?:שנתיים|שנה|3(?:\s|$))',
+    r'(?:גיל|לגיל)\s+(?:0|א)\s*[-–]\s*2',
+]
+
 
 # ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -262,6 +286,12 @@ def is_children_event(title, description='', category='', audience=''):
 
     # Exclude infant-only events unless they also include ages 3+
     for pattern in INFANT_ONLY_PATTERNS:
+        if re.search(pattern, combined):
+            if not INCLUDES_OLDER_PATTERN.search(combined):
+                return False, 0
+
+    # Exclude events exclusively for children with special needs / disabilities
+    for pattern in SPECIAL_NEEDS_ONLY_PATTERNS:
         if re.search(pattern, combined):
             if not INCLUDES_OLDER_PATTERN.search(combined):
                 return False, 0
