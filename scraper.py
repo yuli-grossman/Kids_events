@@ -124,6 +124,8 @@ INFANT_ONLY_PATTERNS = [
     r'\bbaby\b',
     r'חוג\s+(?:לתינוקות?|לפעוטות?)\b',
     r'רפלקסולוגיה\s+לאם',
+    r'חושים\s+ותנועה',                       # "סיפור בחושים ותנועה" — תוכנית לתינוקות/פעוטות
+    r'חממה\s+להורות',                        # "החממה להורות" — מרכז לתינוקות
 ]
 
 # Presence of any of these indicates the event includes ages 3+ (so don't exclude)
@@ -151,6 +153,25 @@ SPECIAL_NEEDS_ONLY_PATTERNS = [
     r'\bצמי"ד\b',                       # ארגון לנכים
     r'\bצהל"ב\b',                       # ארגון נוסף לנכים
     r'אשר\s+ל(?:הם|הן)\s+ילד',         # "משפחות אשר להם ילד עם מוגבלות"
+]
+
+# Events for a specific closed population that the general public shouldn't see
+SPECIFIC_POPULATION_PATTERNS = [
+    # Haredi/religious-only events
+    r'לקהל\s+(?:הדתי|החרדי)\s+בלבד',
+    r'לציבור\s+(?:הדתי|החרדי)\s+בלבד',
+    r'(?:נשים|גברים)\s+בלבד',          # gender-segregated events
+    r'מופרד(?:ת)?\s+(?:לפי\s+)?מגדר',
+    # Reservists / IDF families
+    r'משפחות\s+מילואימניקים?',
+    r'משפחות\s+מילואים\b',               # "הפנינג משפחות מילואים"
+    r'ילדי\s+(?:ה)?מילואים\b',           # "סרט לילדי המילואים"
+    r'(?:ל)?(?:ילדי|משפחות)\s+(?:לוחמי|חיילי)\s+(?:מילואים|צה"ל)',
+    r'(?:ל)?(?:ילדי|משפחות)\s+נופלים?',  # fallen soldiers' families
+    r'ילדי\s+(?:שכולים?|נופלים?)',
+    # Other closed populations
+    r'(?:ל)?(?:ניצולי|ניצולות)\s+שואה',
+    r'(?:ל)?(?:עולי?|עולות)\s+(?:חדשים?|חדשות)',  # new immigrants only
 ]
 
 
@@ -309,6 +330,11 @@ def is_children_event(title, description='', category='', audience=''):
             if not INCLUDES_OLDER_PATTERN.search(combined):
                 return False, -1
 
+    # Exclude events for closed specific populations (haredi-only, reservists, etc.)
+    for pattern in SPECIFIC_POPULATION_PATTERNS:
+        if re.search(pattern, combined):
+            return False, -1
+
     score = 0
     for kw in CHILDREN_KEYWORDS:
         if kw in combined:
@@ -422,6 +448,33 @@ def enrich_descriptions(events, max_workers=14, timeout=9):
     enriched = sum(1 for e in to_enrich if e.get('description'))
     print(f'    ✓ {enriched}/{len(to_enrich)} תיאורים נוספו', file=sys.stderr, flush=True)
     return events
+
+
+def filter_enriched(events):
+    """Second-pass filter: re-check exclusion patterns using enriched descriptions.
+    Catches events whose titles looked OK but whose detail pages reveal infant age,
+    special-needs target audience, closed populations, etc."""
+    kept = []
+    removed = 0
+    for ev in events:
+        combined = f'{ev.get("title","")  } {ev.get("description","")}'
+        excluded = False
+        for p in INFANT_ONLY_PATTERNS:
+            if re.search(p, combined) and not INCLUDES_OLDER_PATTERN.search(combined):
+                excluded = True
+                break
+        if not excluded:
+            for p in SPECIAL_NEEDS_ONLY_PATTERNS + SPECIFIC_POPULATION_PATTERNS:
+                if re.search(p, combined):
+                    excluded = True
+                    break
+        if excluded:
+            removed += 1
+        else:
+            kept.append(ev)
+    if removed:
+        print(f'  סינון שני: הוסרו {removed} אירועים לאחר העשרת תיאורים', file=sys.stderr)
+    return kept
 
 
 # ─── City scrapers ───────────────────────────────────────────────────────────
@@ -1557,8 +1610,11 @@ def main():
     # Enrich descriptions by fetching each event's detail page
     print('\nמוסיף תיאורים לאירועים עירוניים...', file=sys.stderr, flush=True)
     enrich_descriptions(unique_city)
+    unique_city = filter_enriched(unique_city)
+
     print('מוסיף תיאורים לאירועים מיוחדים...', file=sys.stderr, flush=True)
     enrich_descriptions(unique_special)
+    unique_special = filter_enriched(unique_special)
 
     html = generate_html(unique_city, unique_special, city_stats)
     output = Path('index.html')
