@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:habama.smarticket.co.il)",
+      "WebFetch(domain:www.ganeytikva.org.il)",
+      "WebFetch(domain:www.kiryatono.muni.il)",
+      "WebFetch(domain:www.petah-tikva.muni.il)",
+      "WebFetch(domain:www.oryehuda.muni.il)",
+      "WebFetch(domain:yehud-monosson.muni.il)",
+      "WebFetch(domain:savyon.muni.il)",
+      "WebFetch(domain:makefet.smarticket.co.il)",
+      "Bash(pip3 --version)",
+      "Bash(python3 -c \"import requests; import bs4; print\\('deps ok'\\)\")",
+      "Bash(pip3 install *)",
+      "Bash(python3 סורק_אירועים.py)"
+    ]
+  }
+}
