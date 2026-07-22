@@ -309,8 +309,8 @@ main {
 <header>
   <h1>🎈 אירועים לילדים</h1>
   <p class="subtitle">גני תקווה &middot; קריית אונו &middot; פתח תקווה &middot; סביון &middot; אור יהודה &middot; יהוד</p>
-  <p class="update-line">מתעדכן אוטומטית כל יום 🔄 &nbsp;|&nbsp; עודכן: 21.07.2026</p>
-  <div class="stats-bar"><span class="stat-chip" style="--c:#AD1457"><span class="dot"></span>אור יהודה: 2</span><span class="stat-chip" style="--c:#2E7D32"><span class="dot"></span>גני תקווה: 2</span><span class="stat-chip" style="--c:#00695C"><span class="dot"></span>יהוד: 82</span><span class="stat-chip" style="--c:#E65100"><span class="dot"></span>סביון: 7</span><span class="stat-chip" style="--c:#6A1B9A"><span class="dot"></span>פתח תקווה: 1</span><span class="stat-chip" style="--c:#1565C0"><span class="dot"></span>קריית אונו: 7</span></div>
+  <p class="update-line">מתעדכן אוטומטית כל יום 🔄 &nbsp;|&nbsp; עודכן: 22.07.2026</p>
+  <div class="stats-bar"><span class="stat-chip" style="--c:#00695C"><span class="dot"></span>יהוד: 78</span><span class="stat-chip" style="--c:#6A1B9A"><span class="dot"></span>פתח תקווה: 1</span></div>
 </header>
 
 <div class="filter-bar">
@@ -325,20 +325,16 @@ main {
       <button class="qf" onclick="filterPeriod(this,'month')">החודש הקרוב</button>
     </div>
     <div class="tabs" id="cityTabs">
-      <button class="tab active" onclick="filterCity(this,'הכל')" style="--c:#0d9488">הכל <span class="tab-count">91</span></button>
-<button class="tab" onclick="filterCity(this,'אור יהודה')" style="--c:#AD1457">אור יהודה <span class="tab-count">2</span></button>
-<button class="tab" onclick="filterCity(this,'גני תקווה')" style="--c:#2E7D32">גני תקווה <span class="tab-count">2</span></button>
-<button class="tab" onclick="filterCity(this,'יהוד')" style="--c:#00695C">יהוד <span class="tab-count">82</span></button>
-<button class="tab" onclick="filterCity(this,'סביון')" style="--c:#E65100">סביון <span class="tab-count">7</span></button>
+      <button class="tab active" onclick="filterCity(this,'הכל')" style="--c:#0d9488">הכל <span class="tab-count">74</span></button>
+<button class="tab" onclick="filterCity(this,'יהוד')" style="--c:#00695C">יהוד <span class="tab-count">78</span></button>
 <button class="tab" onclick="filterCity(this,'פתח תקווה')" style="--c:#6A1B9A">פתח תקווה <span class="tab-count">1</span></button>
-<button class="tab" onclick="filterCity(this,'קריית אונו')" style="--c:#1565C0">קריית אונו <span class="tab-count">7</span></button>
 
     </div>
   </div>
 </div>
 
 <main>
-  <p class="count-bar" id="countBar">98 אירועים נמצאו</p>
+  <p class="count-bar" id="countBar">81 אירועים נמצאו</p>
   <details class="section-wrap" open>
   <summary class="section-hdr">
     <span class="section-hdr-left"><span class="sicon">⭐</span> אירועים מיוחדים</span>
@@ -380,22 +376,6 @@ main {
     </div>
   </div>
 </div>
-<div class="card special-card" data-city="מיוחד" data-date="2026-07-26" data-type="הצגות">
-  <img class="ev-img" src="https://s3.eu-central-1.amazonaws.com/yt-s3/58d41f38-1b4d-426b-a42c-ab708c2c5923.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#c2410c">⭐ מיוחד</span>
-      <span class="age-badge">👶 לכל המשפחה</span><span class="type-badge">🎭 הצגות</span>
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום ראשון, 26 ביולי 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://tickets.leaan.net/seller/696caa1aec053b9cc12e0e6d" target="_blank" rel="noopener">CIRCO LAND – סירקו לנד</a></h3>
-    <div class="ev-venue">📍 מועד זה מותאם לקהל הדתי והחרדי פארק הקרקס והאטרקציות הגדול של הקיץ מופע קרקס 360° עם אמנים בינלאומיים חוויה מרהיבה, מושקעת ובלתי נשכחת לכל ה</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://tickets.leaan.net/seller/696caa1aec053b9cc12e0e6d" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
 <div class="card special-card" data-city="מיוחד" data-date="2026-07-28" data-type="הצגות">
   <img class="ev-img" src="https://s3.eu-central-1.amazonaws.com/yt-s3/038d0726-65a5-4426-8509-2964ac73678a.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
   <div class="card-body">
@@ -409,6 +389,22 @@ main {
     <div class="ev-venue">📍 הדר לוי (קלמרים, הצחוקיה) במופע סטנדאפ מיוחד לילדים! המופע עוסק בכל מה שמעניין ילדים- אמא ואבא, אחים, בית ספר, חיות מחמד, טלויזיה, אינסטגרם </div>
     <div class="card-footer">
       <a class="btn-link" href="https://tickets.leaan.net/seller/66bdbe58bbed6b9e16c09a9f" target="_blank" rel="noopener">פרטים והרשמה ←</a>
+    </div>
+  </div>
+</div>
+<div class="card special-card" data-city="מיוחד" data-date="2026-07-30" data-type="הצגות">
+  <img class="ev-img" src="https://s3.eu-central-1.amazonaws.com/yt-s3/58d41f38-1b4d-426b-a42c-ab708c2c5923.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+  <div class="card-body">
+    <div class="card-top">
+      <span class="city-badge" style="background:#c2410c">⭐ מיוחד</span>
+      <span class="age-badge">👶 לכל המשפחה</span><span class="type-badge">🎭 הצגות</span>
+      <span class="flex-gap"></span>
+      <span class="ev-date">📅 יום חמישי, 30 ביולי 2026</span>
+    </div>
+    <h3 class="ev-title"><a href="https://tickets.leaan.net/seller/696caa1aec053b9cc12e0e6d" target="_blank" rel="noopener">CIRCO LAND – סירקו לנד</a></h3>
+    <div class="ev-venue">📍 סירקו לנד - פארק הקרקס והאטרקציות הגדול של הקיץ מופע קרקס 360° עם אמנים בינלאומיים. חוויה מרהיבה לכל המשפחה, המשלבת פארק אטרקציות ענק ומופע </div>
+    <div class="card-footer">
+      <a class="btn-link" href="https://tickets.leaan.net/seller/696caa1aec053b9cc12e0e6d" target="_blank" rel="noopener">פרטים והרשמה ←</a>
     </div>
   </div>
 </div>
@@ -465,97 +461,11 @@ main {
   <details class="section-wrap" open>
   <summary class="section-hdr">
     <span class="section-hdr-left"><span class="sicon">📍</span> אירועים עירוניים</span>
-    <span class="section-pill" style="background:#0d9488">91</span>
+    <span class="section-pill" style="background:#0d9488">74</span>
   </summary>
   <div class="city-events-inner">
 <div class="date-group">
-<div class="date-header">יום שלישי, 21 ביולי 2026</div>
-<div class="card" data-city="יהוד" data-date="2026-07-21" data-type="אחר">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#00695C">יהוד</span>
-      <span class="age-badge">👶 גיל הרך</span>
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום שלישי, 21 ביולי 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://yehud-monosson.muni.il/events/sensory-journey-hub-%d7%92%d7%9f-%d7%94%d7%95%d7%a8%d7%94-%d7%99%d7%9c%d7%93-14/" target="_blank" rel="noopener">Sensory Journey Hub- גן הורה ילד</a></h3>
-    <div class="ev-desc">Sensory Journey Hub – גן הורה-ילד גן חדשני לגיל הרך המבוסס על חוויה סנסורית, ליווי הורי וגישה חינוכית פרוגרסיבית. המרחב מאפשר התפתחות רב-חושית, רגשית וקוגניטיבית, תוך יצירת חוויית למידה משותפת להורה ולילד. קבוצת העדכונים בוואטסאפ: לרכישת כר…</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://yehud-monosson.muni.il/events/sensory-journey-hub-%d7%92%d7%9f-%d7%94%d7%95%d7%a8%d7%94-%d7%99%d7%9c%d7%93-14/" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
-<div class="card" data-city="יהוד" data-date="2026-07-21" data-type="אחר">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#00695C">יהוד</span>
-      <span class="age-badge">👶 גיל הרך</span>
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום שלישי, 21 ביולי 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://yehud-monosson.muni.il/events/%d7%92%d7%99%d7%9e%d7%91%d7%95%d7%a8%d7%99-%d7%9e%d7%95%d7%a1%d7%99%d7%a7%d7%9c%d7%99-%d7%92%d7%9d-%d7%92%d7%99%d7%9e%d7%91%d7%95%d7%a8%d7%99-%d7%92%d7%9d-%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%95/" target="_blank" rel="noopener">ג'ימבורי מוסיקלי- גם ג'ימבורי גם מפגש מוסיקלי</a></h3>
-    <div class="ev-desc">🤸 אוהבים ג’ימבורי ומוזיקה? 👶 מחפשים פעילות איכותית לקטנטנים מגיל חצי שנה ועד גיל 4? ❄️ חם בחוץ ומעדיפים לבלות אחר הצהריים במרחב ממוזג, בטוח ומותאם במיוחד לגיל הרך? יש לנו בדיוק את מה שחיפשתם! 💛 ג’ימבורי מוזיקלי בהתחל”ה – חוויה קסומה המשלבת …</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://yehud-monosson.muni.il/events/%d7%92%d7%99%d7%9e%d7%91%d7%95%d7%a8%d7%99-%d7%9e%d7%95%d7%a1%d7%99%d7%a7%d7%9c%d7%99-%d7%92%d7%9d-%d7%92%d7%99%d7%9e%d7%91%d7%95%d7%a8%d7%99-%d7%92%d7%9d-%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%95/" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
-<div class="card" data-city="יהוד" data-date="2026-07-21" data-type="סדנאות">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#00695C">יהוד</span>
-      
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום שלישי, 21 ביולי 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://yehud-monosson.muni.il/events/%d7%9e%d7%93%d7%91%d7%a8%d7%99%d7%9d-%d7%9b%d7%a1%d7%a3-%d7%91%d7%91%d7%99%d7%aa-%d7%a1%d7%93%d7%a0%d7%94-%d7%9c%d7%94%d7%95%d7%a8%d7%94-%d7%95%d7%99%d7%9c%d7%93/" target="_blank" rel="noopener">מדברים כסף בבית- סדנה להורה וילד</a></h3>
-    <div class="ev-desc">סדנה ייחודית ואינטראקטיבית המיועדת להורים, ילדיהם וילדותיהם יחד, בגישה חווייתית ומהנה. הסדנה משלבת משחקים, תרגילים מעשיים ודיונים פתוחים, ומאפשרת להורים ולילדים/ות ללמוד יחד על ניהול כלכלי נכון תוך חיזוק הקשר המשפחתי והבנה הדדית. המשתתפים/ו…</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://yehud-monosson.muni.il/events/%d7%9e%d7%93%d7%91%d7%a8%d7%99%d7%9d-%d7%9b%d7%a1%d7%a3-%d7%91%d7%91%d7%99%d7%aa-%d7%a1%d7%93%d7%a0%d7%94-%d7%9c%d7%94%d7%95%d7%a8%d7%94-%d7%95%d7%99%d7%9c%d7%93/" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
-</div>
-<div class="date-group">
-<div class="date-header">יום רביעי, 22 ביולי 2026</div>
-<div class="card" data-city="קריית אונו" data-date="2026-07-22" data-type="אחר">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#1565C0">קריית אונו</span>
-      
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום רביעי, 22 ביולי 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://www.kiryatono.muni.il/events/1605/" target="_blank" rel="noopener">צלילים לקטנטנים עם הילה הרשקו (גילאי שנה עד שלוש)</a></h3>
-    <div class="ev-desc">פארק ורשה</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://www.kiryatono.muni.il/events/1605/" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
-</div>
-<div class="date-group">
 <div class="date-header">יום חמישי, 23 ביולי 2026</div>
-<div class="card" data-city="סביון" data-date="2026-07-23" data-type="קייטנות">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#E65100">סביון</span>
-      
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום חמישי, 23 ביולי 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://alumim.smarticket.co.il/event/8726" target="_blank" rel="noopener">קייטנת קיץ 2026 בעלומים</a></h3>
-    <div class="ev-desc">קייטנת קיץ 2026 בעלומים!</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://alumim.smarticket.co.il/event/8726" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
 <div class="card" data-city="יהוד" data-date="2026-07-23" data-type="אחר">
   
   <div class="card-body">
@@ -591,22 +501,6 @@ main {
     </div>
   </div>
 </div>
-<div class="card" data-city="גני תקווה" data-date="2026-07-24" data-type="אחר">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#2E7D32">גני תקווה</span>
-      
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום שישי, 24 ביולי 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://www.ganeytikva.org.il/events/5075/" target="_blank" rel="noopener">סדנת אוריגמי להורים וילדים</a></h3>
-    <div class="ev-desc">הספרייה העירונית גני תקווה שמחה להזמינכם לסדנה חווייתית:</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://www.ganeytikva.org.il/events/5075/" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
 </div>
 <div class="date-group">
 <div class="date-header">יום ראשון, 26 ביולי 2026</div>
@@ -623,38 +517,6 @@ main {
     <div class="ev-desc">סדנת לגו רובוטי לילדים WeDo2 – מתחילים מלל חופשי המתאר את האירוע מוזמנים/ות לסדנת לגו רובוטי WeDo2 למתחילים. במהלך הסדנה נתנסה בבנייה ותכנות של רובוטים פשוטים באמצעות ערכת WeDo2 של חברת לגו. הערכה כוללת חיישנים, מנוע, מגוון רכיבים מכניים לב…</div>
     <div class="card-footer">
       <a class="btn-link" href="https://yehud-monosson.muni.il/events/%d7%a1%d7%93%d7%a0%d7%aa-%d7%9c%d7%92%d7%95-%d7%a8%d7%95%d7%91%d7%95%d7%98%d7%99-%d7%9c%d7%99%d7%9c%d7%93%d7%99%d7%9d-wedo2-%d7%9e%d7%aa%d7%97%d7%99%d7%9c%d7%99%d7%9d-5/" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
-<div class="card" data-city="גני תקווה" data-date="2026-07-26" data-type="קייטנות">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#2E7D32">גני תקווה</span>
-      
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום ראשון, 26 ביולי 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://www.ganeytikva.org.il/events/4993/" target="_blank" rel="noopener">קייטנת קיץ מרכז הבמה-מחזור ב</a></h3>
-    <div class="ev-desc">חווית קיץ ייחודית לילדים ולנוער במרכז הבמה. הפעילות כוללת : סדנאות, כניסה לדמויות, פיתוח קול, משחק מול מצלמה, אומנות פלסטית, תלבושות ותפאורה, בימוי וכוריאוגרפיה. הקייטנה מיועדת למסיימי כיתות א' - ח' בחלוקה על פי קבוצות גיל . תאריכים: 26.7.2…</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://www.ganeytikva.org.il/events/4993/" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
-<div class="card" data-city="אור יהודה" data-date="2026-07-26" data-type="אחר">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#AD1457">אור יהודה</span>
-      
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום ראשון, 26 ביולי 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://www.oryehuda.muni.il/events/" target="_blank" rel="noopener">הקרנת הסרט הרפתקה על קוצים</a></h3>
-    
-    <div class="card-footer">
-      <a class="btn-link" href="https://www.oryehuda.muni.il/events/" target="_blank" rel="noopener">פרטים והרשמה ←</a>
     </div>
   </div>
 </div>
@@ -693,22 +555,6 @@ main {
 </div>
 <div class="date-group">
 <div class="date-header">יום שני, 27 ביולי 2026</div>
-<div class="card" data-city="קריית אונו" data-date="2026-07-27" data-type="אחר">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#1565C0">קריית אונו</span>
-      
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום שני, 27 ביולי 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://www.kiryatono.muni.il/events/1645/" target="_blank" rel="noopener">שלום כיתה א&amp;#039;: טקס עירוני לילדים העולים לכיתה א&amp;#039;</a></h3>
-    <div class="ev-desc">אולם ביה&quot;ס יעקב כהן</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://www.kiryatono.muni.il/events/1645/" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
 <div class="card" data-city="יהוד" data-date="2026-07-27" data-type="אחר">
   
   <div class="card-body">
@@ -900,38 +746,6 @@ main {
 </div>
 <div class="date-group">
 <div class="date-header">יום ראשון, 2 באוגוסט 2026</div>
-<div class="card" data-city="סביון" data-date="2026-08-02" data-type="קייטנות">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#E65100">סביון</span>
-      
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום ראשון, 2 באוגוסט 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://alumim.smarticket.co.il/event/8810" target="_blank" rel="noopener">קייטנת יצירה עם בת אל ו Magic Box</a></h3>
-    <div class="ev-desc">קייטנת יצירה קסומה למסיימי גן חובה, כיתה א'+ב' 2/8-9/8</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://alumim.smarticket.co.il/event/8810" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
-<div class="card" data-city="קריית אונו" data-date="2026-08-02" data-type="אחר">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#1565C0">קריית אונו</span>
-      
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום ראשון, 2 באוגוסט 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://www.kiryatono.muni.il/events/1660/" target="_blank" rel="noopener">סינמה אונו: משפחה במסכה</a></h3>
-    <div class="ev-desc">פארק אונו הצעירה</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://www.kiryatono.muni.il/events/1660/" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
 <div class="card" data-city="יהוד" data-date="2026-08-02" data-type="אחר">
   
   <div class="card-body">
@@ -964,22 +778,6 @@ main {
     <div class="ev-desc">אנגלית לקטנטנים הידעתם❓ גם אם אינכם מדברים בבית באנגלית, אם הפעוטות שלכם ייחשפו לשפה האנגלית בגיל מוקדם, הם יצליחו לקלוט אותה במקביל לרכישת השפה העברית! חשבו על סיטואציה שבה הייתם מתגוררים כעת במדינה דוברת אנגלית – הפעוט/ה היה קולט את השפה …</div>
     <div class="card-footer">
       <a class="btn-link" href="https://yehud-monosson.muni.il/events/%d7%90%d7%a0%d7%92%d7%9c%d7%99%d7%aa-%d7%9c%d7%92%d7%99%d7%9c-%d7%94%d7%a8%d7%9a-%d7%91%d7%94%d7%a0%d7%97%d7%99%d7%99%d7%aa-%d7%a2%d7%93%d7%99-%d7%90%d7%91%d7%99%d7%a8%d7%9f-19/" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
-<div class="card" data-city="סביון" data-date="2026-08-03" data-type="הצגות">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#E65100">סביון</span>
-      <span class="age-badge">👶 גיל 2-4</span>
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום שני, 3 באוגוסט 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://alumim.smarticket.co.il/event/8864" target="_blank" rel="noopener">תיאטרונצ'יק עם יפעת תקוע לגיל 2-4 הכלבלב השובב בהשראת &quot;איה פלוטו&quot;</a></h3>
-    <div class="ev-desc">&quot;הכלבלב השובב&quot; בהשראת איה פלוטו שעת סיפור בשיר ותנועה לגיל 2-4 עם יפעת</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://alumim.smarticket.co.il/event/8864" target="_blank" rel="noopener">פרטים והרשמה ←</a>
     </div>
   </div>
 </div>
@@ -1037,22 +835,6 @@ main {
 </div>
 <div class="date-group">
 <div class="date-header">יום רביעי, 5 באוגוסט 2026</div>
-<div class="card" data-city="קריית אונו" data-date="2026-08-05" data-type="ספורט">
-  <img class="ev-img" src="https://kono.smarticket.co.il/uploads/upld6a5f051323bbc821439517.jpeg" alt="" loading="lazy" onerror="this.style.display='none'">
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#1565C0">קריית אונו</span>
-      <span class="age-badge">👶 גיל 4-6</span>
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום רביעי, 5 באוגוסט 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://kono.smarticket.co.il/event/2692" target="_blank" rel="noopener">יוגה ביחד - הורה וילד (לגילאי 4-6)</a></h3>
-    <div class="ev-desc">ספורט</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://kono.smarticket.co.il/event/2692" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
 <div class="card" data-city="יהוד" data-date="2026-08-05" data-type="אחר">
   
   <div class="card-body">
@@ -1129,22 +911,6 @@ main {
 </div>
 <div class="date-group">
 <div class="date-header">יום שני, 10 באוגוסט 2026</div>
-<div class="card" data-city="סביון" data-date="2026-08-10" data-type="אחר">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#E65100">סביון</span>
-      <span class="age-badge">👶 גיל 1+</span>
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום שני, 10 באוגוסט 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://alumim.smarticket.co.il/event/8863" target="_blank" rel="noopener">סיפורותם לגיל 1.5-3 והסיפור בהשראת &quot;הדג שלא רצה להיות דג&quot;</a></h3>
-    <div class="ev-desc">הדג שלא רצה- בהשראת ספרו של פאול קור</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://alumim.smarticket.co.il/event/8863" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
 <div class="card" data-city="יהוד" data-date="2026-08-10" data-type="אחר">
   
   <div class="card-body">
@@ -1839,25 +1605,6 @@ main {
 </div>
 </div>
 <div class="date-group">
-<div class="date-header">יום שלישי, 6 באוקטובר 2026</div>
-<div class="card" data-city="סביון" data-date="2026-10-06" data-type="הצגות">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#E65100">סביון</span>
-      <span class="age-badge">👶 גיל 3-4</span>
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום שלישי, 6 באוקטובר 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://alumim.smarticket.co.il/event/8762" target="_blank" rel="noopener">חוג תיאטרון חוויתי לילדים- שמונה מפגשים גיל 3-4/5-6 ימי שלישי 16:30/17:20</a></h3>
-    <div class="ev-desc">חדש במרכז עלומים – חוג תיאטרון חווייתי לילדים! 🌟</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://alumim.smarticket.co.il/event/8762" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
-</div>
-<div class="date-group">
 <div class="date-header">יום רביעי, 7 באוקטובר 2026</div>
 <div class="card" data-city="יהוד" data-date="2026-10-07" data-type="אחר">
   
@@ -1872,44 +1619,6 @@ main {
     <div class="ev-desc">מחכה לכם מפגש מוזיקלי מלא קסם, קצב ושמחה עם מיטב שירי הילדות המוכרים והאהובים ❤️ נשיר יחד, נרקוד, ננגן וניהנה משילוב של כלי נגינה, אביזרים מיוחדים ובעיקר – זמן איכות וחיזוק הקשר בין הורים וילדים. חוויה מוזיקלית שמפעילה את כל החושים וממלאת א…</div>
     <div class="card-footer">
       <a class="btn-link" href="https://yehud-monosson.muni.il/events/%d7%a4%d7%95%d7%aa%d7%97%d7%99%d7%9d-%d7%a9%d7%a0%d7%94-%d7%a2%d7%9d-%d7%93%d7%9f-%d7%93%d7%9f-%d7%94%d7%a0%d7%92%d7%9f/" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
-</div>
-<div class="date-group">
-<div class="date-header">יום ראשון, 11 באוקטובר 2026</div>
-<div class="card" data-city="סביון" data-date="2026-10-11" data-type="אחר">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#E65100">סביון</span>
-      <span class="age-badge">👶 גיל 3-5</span>
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום ראשון, 11 באוקטובר 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://alumim.smarticket.co.il/event/8359" target="_blank" rel="noopener">מגלים עולם בעלומים- פעילות בוקר בימי ראשון לגיל 3-5</a></h3>
-    <div class="ev-desc">פעילות חווייתית בימי ראשון בין השעות 9:00-12:00.</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://alumim.smarticket.co.il/event/8359" target="_blank" rel="noopener">פרטים והרשמה ←</a>
-    </div>
-  </div>
-</div>
-</div>
-<div class="date-group">
-<div class="date-header">יום שני, 2 בנובמבר 2026</div>
-<div class="card" data-city="סביון" data-date="2026-11-02" data-type="סדנאות">
-  
-  <div class="card-body">
-    <div class="card-top">
-      <span class="city-badge" style="background:#E65100">סביון</span>
-      <span class="age-badge">👶 גיל 4-6</span>
-      <span class="flex-gap"></span>
-      <span class="ev-date">📅 יום שני, 2 בנובמבר 2026</span>
-    </div>
-    <h3 class="ev-title"><a href="https://alumim.smarticket.co.il/event/8622" target="_blank" rel="noopener">עלומים חברות וחברים- סדנה לפיתוח ולחיזוק מיומנויות חברתיות לילדים ולילדות גיל 4-6</a></h3>
-    <div class="ev-desc">סדנה לפיתוח מיומנויות חברתיות</div>
-    <div class="card-footer">
-      <a class="btn-link" href="https://alumim.smarticket.co.il/event/8622" target="_blank" rel="noopener">פרטים והרשמה ←</a>
     </div>
   </div>
 </div>
@@ -2138,7 +1847,7 @@ var activeCity = 'הכל';
 var activePeriod = 'all';
 var activeType = 'all';
 var searchQuery = '';
-var todayStr = '2026-07-21';
+var todayStr = '2026-07-22';
 
 function filterCity(btn, city) {
   activeCity = city;
