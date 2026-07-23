@@ -126,7 +126,23 @@ INFANT_ONLY_PATTERNS = [
     r'רפלקסולוגיה\s+לאם',
     r'חושים\s+ותנועה',                       # "סיפור בחושים ותנועה" — תוכנית לתינוקות/פעוטות
     r'חממה\s+להורות',                        # "החממה להורות" — מרכז לתינוקות
+    r'גן\s+(?:הורה|אמא|אבא)[\s\-–]+ילד',   # "גן הורה-ילד" — תוכנית לגיל הרך
+    r'גן\s+עם\s+(?:הורה|אמא|אבא)',          # "גן עם אמא/אבא"
+    r'(?:חוג|פעילות)\s+(?:הורה|אמא|אבא)[\s\-–]+ילד',
 ]
+
+# Events for children too old for our target (ages 3-5 / gan-age).
+# Only filtered when the MINIMUM grade/age is already too high.
+OLDER_CHILDREN_ONLY_PATTERNS = [
+    r'כיתות?\s+[ד-י]',                  # starts from grade 4+ (ד, ה, ו, ז, ח, ט, י)
+    r'\([ד-ט][׳\']\s*[-–]\s*[ד-י][׳\']\)',  # (ד'-ו') parenthetical grade notation 4+
+    r'(?:לגיל|גיל)\s+(?:9|10|11|12|13|14|15|16|17)\s*[-–\s]',  # age 9+ as lower bound
+]
+# If any of these appear alongside an OLDER pattern, the event also covers younger kids → keep
+INCLUDES_YOUNGER_PATTERN = re.compile(
+    r'כיתות?\s+[א-ג]|\([א-ג][׳\']\s*[-–]\s*[א-ו][׳\']\)|גן\s+(?:חובה|טרום|ילדים)|'
+    r'גיל\s+[3-8]|גיל\s+(?:שלוש|ארבע|חמש|שש|שבע)'
+)
 
 # Presence of any of these indicates the event includes ages 3+ (so don't exclude)
 INCLUDES_OLDER_PATTERN = re.compile(
@@ -335,6 +351,12 @@ def is_children_event(title, description='', category='', audience=''):
         if re.search(pattern, combined):
             return False, -1
 
+    # Exclude events for older children only (grade 4+, age 9+) when no younger group present
+    for pattern in OLDER_CHILDREN_ONLY_PATTERNS:
+        if re.search(pattern, combined):
+            if not INCLUDES_YOUNGER_PATTERN.search(combined):
+                return False, -1
+
     score = 0
     for kw in CHILDREN_KEYWORDS:
         if kw in combined:
@@ -425,6 +447,15 @@ def fetch_event_description(url, title='', timeout=9):
             if len(txt) > 20 and txt.lower().strip() != title_stripped:
                 return txt[:260]
 
+    # 3. Last-resort: find the longest <p> on page that isn't a title repeat
+    best = ''
+    for p in soup.select('p'):
+        txt = clean_description(p.get_text(separator=' ', strip=True))
+        if len(txt) > len(best) and len(txt) > 30 and txt.lower()[:40] != title_stripped[:40]:
+            best = txt
+    if best:
+        return best[:260]
+
     return ''
 
 
@@ -468,6 +499,11 @@ def filter_enriched(events):
                 if re.search(p, combined):
                     excluded = True
                     break
+        if not excluded:
+            for p in OLDER_CHILDREN_ONLY_PATTERNS:
+                if re.search(p, combined) and not INCLUDES_YOUNGER_PATTERN.search(combined):
+                    excluded = True
+                    break
         if excluded:
             removed += 1
         else:
@@ -481,6 +517,7 @@ def filter_enriched(events):
 
 def scrape_ganeytikva():
     """גני תקווה עירייה — ganeytikva.org.il/events/ (HTML)"""
+    from concurrent.futures import ThreadPoolExecutor, as_completed
     city = 'גני תקווה'
     base = 'https://www.ganeytikva.org.il'
     events = []
@@ -495,6 +532,8 @@ def scrape_ganeytikva():
 
     items = events_wrap.select('div.event') if events_wrap else soup.select('div.event')
 
+    # Collect basic event data first
+    raw = []
     for item in items:
         title_el = item.select_one('div.title, .event-title, h2, h3')
         if not title_el:
@@ -518,9 +557,27 @@ def scrape_ganeytikva():
         month = date_divs[1].get_text(strip=True) if len(date_divs) > 1 else ''
         date_text = f'{day} {month}'.strip()
 
-        is_child, score = is_children_event(title, '', category)
+        raw.append({'title': title, 'link': link or f'{base}/events/', 'category': category, 'date_text': date_text})
+
+    # Fetch descriptions from individual event pages in parallel (needed for classification)
+    def fetch_desc(item):
+        return item, fetch_event_description(item['link'], title=item['title'], timeout=10)
+
+    desc_map = {}
+    with ThreadPoolExecutor(max_workers=10) as ex:
+        futures = {ex.submit(fetch_desc, it): it for it in raw if it['link'] != f'{base}/events/'}
+        for fut in as_completed(futures):
+            it, desc = fut.result()
+            desc_map[it['link']] = desc
+
+    for item in raw:
+        description = desc_map.get(item['link'], '')
+        is_child, score = is_children_event(item['title'], description, item['category'])
+        if score < 0:
+            continue
         if is_child:
-            events.append(make_event(city, title, None, date_text, link or f'{base}/events/', '', category, '', score))
+            events.append(make_event(city, item['title'], None, item['date_text'],
+                                     item['link'], description[:200], item['category'], '', score))
 
     return events
 
