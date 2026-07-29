@@ -561,7 +561,7 @@ def scrape_ganeytikva():
 
     # Fetch descriptions from individual event pages in parallel (needed for classification)
     def fetch_desc(item):
-        return item, fetch_event_description(item['link'], title=item['title'], timeout=10)
+        return item, fetch_event_description(item['link'], title=item['title'], timeout=15)
 
     desc_map = {}
     with ThreadPoolExecutor(max_workers=10) as ex:
