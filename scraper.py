@@ -1611,11 +1611,63 @@ SPECIAL_SCRAPERS = [
 ]
 
 
+CACHE_FILE = Path('events_cache.json')
+
+
+def _load_cache():
+    if CACHE_FILE.exists():
+        try:
+            return jsonlib.loads(CACHE_FILE.read_text(encoding='utf-8'))
+        except Exception:
+            pass
+    return {}
+
+
+def _save_cache(cache):
+    def serial(obj):
+        if hasattr(obj, 'isoformat'):
+            return obj.isoformat()
+        raise TypeError(f'Not serializable: {type(obj)}')
+    CACHE_FILE.write_text(jsonlib.dumps(cache, ensure_ascii=False, indent=2, default=serial), encoding='utf-8')
+
+
+def _events_to_cache(events):
+    """Convert event list to JSON-serialisable form."""
+    out = []
+    for e in events:
+        d = dict(e)
+        if hasattr(d.get('date'), 'isoformat'):
+            d['date'] = d['date'].isoformat()
+        out.append(d)
+    return out
+
+
+def _events_from_cache(cached_list, today):
+    """Load events from cache, dropping those whose date has already passed."""
+    out = []
+    for e in cached_list:
+        d = e.get('date')
+        if d:
+            try:
+                ev_date = date.fromisoformat(d)
+                if ev_date < today:
+                    continue
+                e = dict(e)
+                e['date'] = ev_date
+            except ValueError:
+                pass
+        out.append(e)
+    return out
+
+
 def main():
     today = date.today()
     all_city = []
     all_special = []
     city_stats = {c: 0 for c in CITY_COLORS}
+    cache = _load_cache()
+    # Track events fetched per city name for cache update
+    city_results: dict[str, list] = {}
 
     # City scrapers
     for city, fn in CITY_SCRAPERS:
@@ -1624,11 +1676,30 @@ def main():
             evs = fn()
             count = len(evs)
             print(f'  ✓ {count} אירועים', file=sys.stderr, flush=True)
-            all_city.extend(evs)
-            city_stats[city] = city_stats.get(city, 0) + count
+            if count > 0:
+                all_city.extend(evs)
+                city_stats[city] = city_stats.get(city, 0) + count
+                city_results.setdefault(city, []).extend(evs)
+            else:
+                # Scraper returned nothing — fall back to cache
+                cached = _events_from_cache(cache.get(city, []), today)
+                if cached:
+                    print(f'  ↩ שימוש ב-{len(cached)} אירועים שמורים', file=sys.stderr, flush=True)
+                    all_city.extend(cached)
+                    city_stats[city] = city_stats.get(city, 0) + len(cached)
         except Exception as e:
             print(f'  ✗ שגיאה: {e}', file=sys.stderr, flush=True)
             traceback.print_exc(file=sys.stderr)
+            cached = _events_from_cache(cache.get(city, []), today)
+            if cached:
+                print(f'  ↩ שימוש ב-{len(cached)} אירועים שמורים', file=sys.stderr, flush=True)
+                all_city.extend(cached)
+                city_stats[city] = city_stats.get(city, 0) + len(cached)
+
+    # Update cache with newly-fetched events (only for cities that returned results)
+    for city, evs in city_results.items():
+        cache[city] = _events_to_cache(evs)
+    _save_cache(cache)
 
     # Special scrapers
     for fn in SPECIAL_SCRAPERS:
