@@ -371,21 +371,6 @@
     {
       "city": "יהוד",
       "title": "פותחים שבוע בהתחל'ה",
-      "date": "2026-08-09",
-      "date_text": "2026-08-09T09:30",
-      "url": "https://yehud-monosson.muni.il/events/%d7%a4%d7%95%d7%aa%d7%97%d7%99%d7%9d-%d7%a9%d7%91%d7%95%d7%a2-%d7%91%d7%94%d7%aa%d7%97%d7%9c%d7%94-42/",
-      "description": "",
-      "category": "7",
-      "audience": "",
-      "score": 2,
-      "special": false,
-      "image": "",
-      "age_label": "גיל הרך",
-      "event_type": "אחר"
-    },
-    {
-      "city": "יהוד",
-      "title": "פותחים שבוע בהתחל'ה",
       "date": "2026-08-16",
       "date_text": "2026-08-16T09:30",
       "url": "https://yehud-monosson.muni.il/events/%d7%a4%d7%95%d7%aa%d7%97%d7%99%d7%9d-%d7%a9%d7%91%d7%95%d7%a2-%d7%91%d7%94%d7%aa%d7%97%d7%9c%d7%94-43/",
@@ -486,6 +471,21 @@
       "special": false,
       "image": "",
       "age_label": "",
+      "event_type": "אחר"
+    },
+    {
+      "city": "יהוד",
+      "title": "Milky Way English –Tiny Turtle Tunes",
+      "date": "2026-08-13",
+      "date_text": "2026-08-13T16:30",
+      "url": "https://yehud-monosson.muni.il/events/milky-way-english-tiny-turtle-tunes-3/",
+      "description": "",
+      "category": "7",
+      "audience": "",
+      "score": 2,
+      "special": false,
+      "image": "",
+      "age_label": "גיל הרך",
       "event_type": "אחר"
     },
     {
