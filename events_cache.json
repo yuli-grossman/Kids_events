@@ -1195,6 +1195,21 @@
     },
     {
       "city": "יהוד",
+      "title": "עולמות קטנים בתלת ממד- קורס לבניית סצנה מיניאטורית בארבעה מפגשים",
+      "date": "2026-10-12",
+      "date_text": "2026-10-12T17:00",
+      "url": "https://yehud-monosson.muni.il/events/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%a7%d7%98%d7%a0%d7%99%d7%9d-%d7%91%d7%aa%d7%9c%d7%aa-%d7%9e%d7%9e%d7%93-%d7%a7%d7%95%d7%a8%d7%a1-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%aa-%d7%a1%d7%a6%d7%a0%d7%94/",
+      "description": "",
+      "category": "117",
+      "audience": "",
+      "score": 2,
+      "special": false,
+      "image": "",
+      "age_label": "",
+      "event_type": "אחר"
+    },
+    {
+      "city": "יהוד",
       "title": "סדנת בית בובות מאיר בעיצוב אישי בשני מפגשים",
       "date": "2026-11-11",
       "date_text": "2026-11-11T17:00",
@@ -1301,21 +1316,6 @@
     {
       "city": "יהוד",
       "title": "סדנת לגו רובוטי לילדים WeDo2- מתחילים",
-      "date": "2026-08-31",
-      "date_text": "2026-08-31T17:00",
-      "url": "https://yehud-monosson.muni.il/events/%d7%a1%d7%93%d7%a0%d7%aa-%d7%9c%d7%92%d7%95-%d7%a8%d7%95%d7%91%d7%95%d7%98%d7%99-%d7%9c%d7%99%d7%9c%d7%93%d7%99%d7%9d-wedo2-%d7%9e%d7%aa%d7%97%d7%99%d7%9c%d7%99%d7%9d-7/",
-      "description": "",
-      "category": "117",
-      "audience": "",
-      "score": 8,
-      "special": false,
-      "image": "",
-      "age_label": "",
-      "event_type": "אחר"
-    },
-    {
-      "city": "יהוד",
-      "title": "סדנת לגו רובוטי לילדים WeDo2- מתחילים",
       "date": "2026-09-14",
       "date_text": "2026-09-14T17:00",
       "url": "https://yehud-monosson.muni.il/events/%d7%a1%d7%93%d7%a0%d7%aa-%d7%9c%d7%92%d7%95-%d7%a8%d7%95%d7%91%d7%95%d7%98%d7%99-%d7%9c%d7%99%d7%9c%d7%93%d7%99%d7%9d-wedo2-%d7%9e%d7%aa%d7%97%d7%99%d7%9c%d7%99%d7%9d-8/",
@@ -1342,21 +1342,6 @@
       "image": "",
       "age_label": "",
       "event_type": "הצגות"
-    },
-    {
-      "city": "יהוד",
-      "title": "נפגשים בג'ימבורי- ג'ימבורי קיץ במחיר מסובסד",
-      "date": "2026-08-31",
-      "date_text": "2026-08-31T17:15",
-      "url": "https://yehud-monosson.muni.il/events/%d7%a0%d7%a4%d7%92%d7%a9%d7%99%d7%9d-%d7%91%d7%92%d7%99%d7%9e%d7%91%d7%95%d7%a8%d7%99-%d7%92%d7%99%d7%9e%d7%91%d7%95%d7%a8%d7%99-%d7%a7%d7%99%d7%a5-%d7%91%d7%9e%d7%97%d7%99%d7%a8-%d7%9e%d7%a1-3/",
-      "description": "",
-      "category": "7",
-      "audience": "",
-      "score": 2,
-      "special": false,
-      "image": "",
-      "age_label": "גיל הרך",
-      "event_type": "אחר"
     },
     {
       "city": "יהוד",
