@@ -505,21 +505,6 @@
     },
     {
       "city": "יהוד",
-      "title": "פותחים שבוע בהתחל'ה",
-      "date": "2026-09-06",
-      "date_text": "2026-09-06T09:30",
-      "url": "https://yehud-monosson.muni.il/events/%d7%a4%d7%95%d7%aa%d7%97%d7%99%d7%9d-%d7%a9%d7%91%d7%95%d7%a2-%d7%91%d7%94%d7%aa%d7%97%d7%9c%d7%94-46/",
-      "description": "",
-      "category": "7",
-      "audience": "",
-      "score": 2,
-      "special": false,
-      "image": "",
-      "age_label": "גיל הרך",
-      "event_type": "אחר"
-    },
-    {
-      "city": "יהוד",
       "title": "חוויה בהשראת הסיפור- גברת קרש ומר מערוך בהנחיית יפעת נתיב",
       "date": "2026-12-07",
       "date_text": "2026-12-07T16:30",
@@ -1521,21 +1506,6 @@
       "special": false,
       "image": "",
       "age_label": "גיל הרך",
-      "event_type": "אחר"
-    },
-    {
-      "city": "יהוד",
-      "title": "פתיחת שנה להורים במרכז למשפחה",
-      "date": "2026-09-06",
-      "date_text": "2026-09-06T20:30",
-      "url": "https://yehud-monosson.muni.il/events/%d7%a4%d7%aa%d7%99%d7%97%d7%aa-%d7%a9%d7%a0%d7%94-%d7%9c%d7%94%d7%95%d7%a8%d7%99%d7%9d-%d7%91%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%9e%d7%a9%d7%a4%d7%97%d7%94/",
-      "description": "",
-      "category": "5",
-      "audience": "",
-      "score": 2,
-      "special": false,
-      "image": "",
-      "age_label": "",
       "event_type": "אחר"
     }
   ]
