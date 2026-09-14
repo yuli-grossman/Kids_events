@@ -490,21 +490,6 @@
     },
     {
       "city": "יהוד",
-      "title": "פותחים שבוע בהתחל'ה",
-      "date": "2026-09-13",
-      "date_text": "2026-09-13T09:30",
-      "url": "https://yehud-monosson.muni.il/events/%d7%a4%d7%95%d7%aa%d7%97%d7%99%d7%9d-%d7%a9%d7%91%d7%95%d7%a2-%d7%91%d7%94%d7%aa%d7%97%d7%9c%d7%94-47/",
-      "description": "",
-      "category": "7",
-      "audience": "",
-      "score": 2,
-      "special": false,
-      "image": "",
-      "age_label": "גיל הרך",
-      "event_type": "אחר"
-    },
-    {
-      "city": "יהוד",
       "title": "פעילות חווייתית סיפור של חורף- בהנחיית קרן למברג",
       "date": "2027-04-01",
       "date_text": "2027-04-01T16:30",
@@ -1506,6 +1491,21 @@
       "special": false,
       "image": "",
       "age_label": "גיל הרך",
+      "event_type": "אחר"
+    },
+    {
+      "city": "יהוד",
+      "title": "מפגש חשיבה- משפחות עצמאיות",
+      "date": "2026-10-12",
+      "date_text": "2026-10-12T20:30",
+      "url": "https://yehud-monosson.muni.il/events/%d7%9e%d7%a4%d7%92%d7%a9-%d7%97%d7%a9%d7%99%d7%91%d7%94-%d7%9e%d7%a9%d7%a4%d7%97%d7%95%d7%aa-%d7%a2%d7%a6%d7%9e%d7%90%d7%99%d7%95%d7%aa/",
+      "description": "",
+      "category": "5",
+      "audience": "",
+      "score": 2,
+      "special": false,
+      "image": "",
+      "age_label": "",
       "event_type": "אחר"
     },
     {
