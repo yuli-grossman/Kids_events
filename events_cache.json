@@ -1151,8 +1151,8 @@
     {
       "city": "יהוד",
       "title": "פותחים שנה עם דן דן הנגן",
-      "date": "2026-10-07",
-      "date_text": "2026-10-07T16:30",
+      "date": "2026-10-05",
+      "date_text": "2026-10-05T16:30",
       "url": "https://yehud-monosson.muni.il/events/%d7%a4%d7%95%d7%aa%d7%97%d7%99%d7%9d-%d7%a9%d7%a0%d7%94-%d7%a2%d7%9d-%d7%93%d7%9f-%d7%93%d7%9f-%d7%94%d7%a0%d7%92%d7%9f/",
       "description": "",
       "category": "7",
@@ -1206,6 +1206,36 @@
       "special": false,
       "image": "",
       "age_label": "גיל הרך",
+      "event_type": "אחר"
+    },
+    {
+      "city": "יהוד",
+      "title": "סדנת ציור באור לילדים ומבוגרים Light painting",
+      "date": "2026-12-06",
+      "date_text": "2026-12-06T17:00",
+      "url": "https://yehud-monosson.muni.il/events/%d7%a1%d7%93%d7%a0%d7%aa-%d7%a6%d7%99%d7%95%d7%a8-%d7%91%d7%90%d7%95%d7%a8-%d7%9c%d7%99%d7%9c%d7%93%d7%99%d7%9d-%d7%95%d7%9e%d7%91%d7%95%d7%92%d7%a8%d7%99%d7%9d-light-painting-2/",
+      "description": "",
+      "category": "117",
+      "audience": "",
+      "score": 8,
+      "special": false,
+      "image": "",
+      "age_label": "",
+      "event_type": "אחר"
+    },
+    {
+      "city": "יהוד",
+      "title": "סדנת ציור באור לילדים ומבוגרים Light painting",
+      "date": "2026-11-01",
+      "date_text": "2026-11-01T17:00",
+      "url": "https://yehud-monosson.muni.il/events/%d7%a1%d7%93%d7%a0%d7%aa-%d7%a6%d7%99%d7%95%d7%a8-%d7%91%d7%90%d7%95%d7%a8-%d7%9c%d7%99%d7%9c%d7%93%d7%99%d7%9d-%d7%95%d7%9e%d7%91%d7%95%d7%92%d7%a8%d7%99%d7%9d-light-painting/",
+      "description": "",
+      "category": "117",
+      "audience": "",
+      "score": 8,
+      "special": false,
+      "image": "",
+      "age_label": "",
       "event_type": "אחר"
     },
     {
