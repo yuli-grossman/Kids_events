@@ -401,21 +401,6 @@
     {
       "city": "יהוד",
       "title": "התפתחות תנועה ומוזיקה- זחילה עד גיל 3",
-      "date": "2026-11-12",
-      "date_text": "2026-11-12T09:30",
-      "url": "https://yehud-monosson.muni.il/events/%d7%94%d7%aa%d7%a4%d7%aa%d7%97%d7%95%d7%aa-%d7%aa%d7%a0%d7%95%d7%a2%d7%94-%d7%95%d7%9e%d7%95%d7%96%d7%99%d7%a7%d7%94-%d7%96%d7%97%d7%99%d7%9c%d7%94-%d7%a2%d7%93-%d7%92%d7%99%d7%9c-3-4/",
-      "description": "",
-      "category": "7",
-      "audience": "",
-      "score": 5,
-      "special": false,
-      "image": "",
-      "age_label": "גיל 3+",
-      "event_type": "אחר"
-    },
-    {
-      "city": "יהוד",
-      "title": "התפתחות תנועה ומוזיקה- זחילה עד גיל 3",
       "date": "2026-11-26",
       "date_text": "2026-11-26T09:30",
       "url": "https://yehud-monosson.muni.il/events/%d7%94%d7%aa%d7%a4%d7%aa%d7%97%d7%95%d7%aa-%d7%aa%d7%a0%d7%95%d7%a2%d7%94-%d7%95%d7%9e%d7%95%d7%96%d7%99%d7%a7%d7%94-%d7%96%d7%97%d7%99%d7%9c%d7%94-%d7%a2%d7%93-%d7%92%d7%99%d7%9c-3-3/",
@@ -861,36 +846,6 @@
       "special": false,
       "image": "",
       "age_label": "",
-      "event_type": "אחר"
-    },
-    {
-      "city": "יהוד",
-      "title": "הגנה עצמית לגיל השלישי",
-      "date": "2026-11-12",
-      "date_text": "2026-11-12T10:00",
-      "url": "https://yehud-monosson.muni.il/events/%d7%94%d7%92%d7%a0%d7%94-%d7%a2%d7%a6%d7%9e%d7%99%d7%aa-%d7%9c%d7%92%d7%99%d7%9c-%d7%94%d7%a9%d7%9c%d7%99%d7%a9%d7%99/",
-      "description": "",
-      "category": "129",
-      "audience": "",
-      "score": 2,
-      "special": false,
-      "image": "",
-      "age_label": "",
-      "event_type": "אחר"
-    },
-    {
-      "city": "יהוד",
-      "title": "ריתמוזיקה לגיל הרך",
-      "date": "2026-11-12",
-      "date_text": "2026-11-12T10:30",
-      "url": "https://yehud-monosson.muni.il/events/%d7%a8%d7%99%d7%aa%d7%9e%d7%95%d7%96%d7%99%d7%a7%d7%94-%d7%9c%d7%92%d7%99%d7%9c-%d7%94%d7%a8%d7%9a/",
-      "description": "",
-      "category": "7",
-      "audience": "",
-      "score": 7,
-      "special": false,
-      "image": "",
-      "age_label": "גיל הרך",
       "event_type": "אחר"
     },
     {
