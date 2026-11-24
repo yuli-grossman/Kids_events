@@ -310,6 +310,21 @@
   "יהוד": [
     {
       "city": "יהוד",
+      "title": "פסטיבל הבייביז של יהוד מונוסון",
+      "date": "2026-12-01",
+      "date_text": "2026-12-01T09:00",
+      "url": "https://yehud-monosson.muni.il/events/%d7%a4%d7%a1%d7%98%d7%99%d7%91%d7%9c-%d7%94%d7%91%d7%99%d7%99%d7%91%d7%99%d7%96-%d7%a9%d7%9c-%d7%99%d7%94%d7%95%d7%93-%d7%9e%d7%95%d7%a0%d7%95%d7%a1%d7%95%d7%9f-2/",
+      "description": "",
+      "category": "7",
+      "audience": "",
+      "score": 2,
+      "special": false,
+      "image": "",
+      "age_label": "גיל הרך",
+      "event_type": "פסטיבלים"
+    },
+    {
+      "city": "יהוד",
       "title": "פותחים שבוע בהתחל'ה",
       "date": "2027-04-11",
       "date_text": "2027-04-11T09:30",
@@ -790,6 +805,21 @@
     },
     {
       "city": "יהוד",
+      "title": "אירוע השיא של חנוכה- מאור קטן לאור איתן",
+      "date": "2026-12-08",
+      "date_text": "2026-12-08T16:30",
+      "url": "https://yehud-monosson.muni.il/events/%d7%90%d7%99%d7%a8%d7%95%d7%a2-%d7%94%d7%a9%d7%99%d7%90-%d7%a9%d7%9c-%d7%97%d7%a0%d7%95%d7%9b%d7%94-%d7%9e%d7%90%d7%95%d7%a8-%d7%a7%d7%98%d7%9f-%d7%9c%d7%90%d7%95%d7%a8-%d7%90%d7%99%d7%aa%d7%9f/",
+      "description": "",
+      "category": "7",
+      "audience": "",
+      "score": 2,
+      "special": false,
+      "image": "",
+      "age_label": "גיל הרך",
+      "event_type": "אחר"
+    },
+    {
+      "city": "יהוד",
       "title": "פעילות מוזיקלית לחג החנוכה",
       "date": "2026-12-09",
       "date_text": "2026-12-09T16:30",
@@ -832,21 +862,6 @@
       "image": "",
       "age_label": "גיל הרך",
       "event_type": "אחר"
-    },
-    {
-      "city": "יהוד",
-      "title": "סיפור של חורף- הצגה אינטראקטיבית עם גלי כוכבת ערוץ לולי",
-      "date": "2026-11-23",
-      "date_text": "2026-11-23T16:30",
-      "url": "https://yehud-monosson.muni.il/events/%d7%a1%d7%99%d7%a4%d7%95%d7%a8-%d7%a9%d7%9c-%d7%97%d7%95%d7%a8%d7%a3-%d7%94%d7%a6%d7%92%d7%94-%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%90%d7%a7%d7%98%d7%99%d7%91%d7%99%d7%aa-%d7%a2%d7%9d-%d7%92%d7%9c%d7%99/",
-      "description": "",
-      "category": "7",
-      "audience": "",
-      "score": 2,
-      "special": false,
-      "image": "",
-      "age_label": "גיל הרך",
-      "event_type": "הצגות"
     },
     {
       "city": "יהוד",
@@ -1571,8 +1586,8 @@
     {
       "city": "יהוד",
       "title": "אירוע חנוכה לילדים תרבות תורנית",
-      "date": "2026-12-08",
-      "date_text": "2026-12-08T17:00",
+      "date": "2026-12-06",
+      "date_text": "2026-12-06T17:00",
       "url": "https://yehud-monosson.muni.il/events/%d7%90%d7%99%d7%a8%d7%95%d7%a2-%d7%97%d7%a0%d7%95%d7%9b%d7%94-%d7%9c%d7%99%d7%9c%d7%93%d7%99%d7%9d-%d7%aa%d7%a8%d7%91%d7%95%d7%aa-%d7%aa%d7%95%d7%a8%d7%a0%d7%99%d7%aa/",
       "description": "",
       "category": "8",
@@ -1724,21 +1739,6 @@
       "date": "2026-12-02",
       "date_text": "2026-12-02T17:00",
       "url": "https://yehud-monosson.muni.il/events/%d7%a1%d7%93%d7%a0%d7%aa-%d7%9c%d7%92%d7%95-%d7%a8%d7%95%d7%91%d7%95%d7%98%d7%99-%d7%9c%d7%99%d7%9c%d7%93%d7%99%d7%9d-wedo2-%d7%9e%d7%aa%d7%97%d7%99%d7%9c%d7%99%d7%9d-12/",
-      "description": "",
-      "category": "117",
-      "audience": "",
-      "score": 8,
-      "special": false,
-      "image": "",
-      "age_label": "",
-      "event_type": "אחר"
-    },
-    {
-      "city": "יהוד",
-      "title": "סדנת לגו רובוטי לילדים WeDo2- מתחילים",
-      "date": "2026-11-23",
-      "date_text": "2026-11-23T17:00",
-      "url": "https://yehud-monosson.muni.il/events/%d7%a1%d7%93%d7%a0%d7%aa-%d7%9c%d7%92%d7%95-%d7%a8%d7%95%d7%91%d7%95%d7%98%d7%99-%d7%9c%d7%99%d7%9c%d7%93%d7%99%d7%9d-wedo2-%d7%9e%d7%aa%d7%97%d7%99%d7%9c%d7%99%d7%9d-16/",
       "description": "",
       "category": "117",
       "audience": "",
